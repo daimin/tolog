@@ -4,8 +4,11 @@
 import os
 import datetime
 import web
+import markdown
+
 import conf
 import util
+
 #import log
 
 import model
@@ -56,6 +59,9 @@ class Index:
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
+            
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -71,6 +77,8 @@ class TagHandler():
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -86,6 +94,8 @@ class SearchHandler():
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -99,6 +109,8 @@ class DateHandler():
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -112,6 +124,8 @@ class MonthHandler():
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -125,6 +139,8 @@ class YearHandler():
         newPosts = []
         for p in posts:
             p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
             p.tags = model.get_tag(p.id)
             newPosts.append(p)
         
@@ -138,7 +154,10 @@ class RssHandler():
         rss_items = []
         
         for p in posts:
-            cont = web.net.htmlunquote(p.content)
+            p.content = web.net.htmlunquote(p.content)
+            if p.is_md == 1:
+                p.content = markdown.markdown(p.content)
+            cont = p.content
             
             #if len(cont) > 500:
             #    cont = cont[0:500] + '...'
@@ -170,6 +189,9 @@ class View:
         """ View single post """
         posts = model.get_post(int(id))
         posts[0].content = web.net.htmlunquote(posts[0].content)
+        if posts[0].is_md == 1:            
+            posts[0].content = markdown.markdown(posts[0].content)
+            
         posts[0].tags = model.get_tag(posts[0].id)
         model.update_view_num(int(id)) 
         return render.view(posts[0],posts[1],posts[2], util.get_login())
@@ -206,11 +228,12 @@ class New:
             return self.render.new(form)
         title = web.net.htmlquote(form.d.title)
         
-        content = util.encode_newLine(form.d.content)
-        content = web.net.htmlquote(content)
+        #使用markdown不需任何操作
+        #content = util.encode_newLine(form.d.content)
+        #content = web.net.htmlquote(content)
         
         tag = web.net.htmlquote(form.d.tag)
-        model.new_post(title, content, tag)
+        model.new_post(title, form.d.content, tag ,1)
         raise web.seeother('/')
 
 

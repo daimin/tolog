@@ -4,9 +4,7 @@
 *[hidefocus]{outline:0}
 fieldset, img, html, body, iframe, input{border:0}
 table{border-collapse:collapse; border-spacing:0}
-li{list-style:none}
-h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%}
-em, strong{font-weight:bold; font-style:normal}
+
 body, textarea, select, input{font-family:"Microsoft YaHei",\5FAE\8F6F\96C5\9ED1,tahoma,arial,simsun,\5B8B\4F53; font-size:12px; color:#737373}
 body{word-wrap:break-word}
 body{background-color:#dfdfe1}
@@ -70,8 +68,8 @@ a, a:hover, .day{color:#828d95}
 .content img, .content object, .content embed{display:block; max-width:100%; _width:99%}
 .content .summary{font-size:12px;}
 a{-webkit-transition-property:background-color,color; -webkit-transition-duration:.4s,.5s; -webkit-transition-timing-function:ease,ease; -moz-transition-property:background-color,color; -moz-transition-duration:.4s,.5s; -moz-transition-timing-function:ease,ease; -ms-transition-property:background-color,color; -ms-transition-duration:.4s,.5s; -ms-transition-timing-function:ease,ease; -o-transition-property:background-color,color; -o-transition-duration:.4s,.5s; -o-transition-timing-function:ease,ease; transition-property:background-color,color; transition-duration:.4s,.5s; transition-timing-function:ease,ease}
-h1 a, h2 a{color:#4c4c4c; font-size:26px}
-h3{font-size:14px; font-weight:bold; color:#939393}
+.h1 a, .h2 a{color:#4c4c4c; font-size:26px}
+.h3{font-size:14px; font-weight:bold; color:#939393}
 .tag{clear:both;font-size:12px;padding-top:20px;}
 .tag a{display:inline-block; padding:2px 8px; margin:0 12px 5px 0; color:#fefefe}
 .tag a:hover{color:#fefefe;text-decoration:none;}

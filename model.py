@@ -87,10 +87,10 @@ def get_post(id):
     except IndexError:
         return None
 
-def new_post(title, text, tag):
+def new_post(title, text, tag, isMd):
     ctime = datetime.datetime.utcnow()
     mtime = ctime
-    insert_id = db.insert(util.tab('content'), title=title, content=text, createtime=ctime, modifytime=mtime)
+    insert_id = db.insert(util.tab('content'), title=title, content=text, createtime=ctime, modifytime=mtime, is_md=1)
     if insert_id is not None:
         add_tag(insert_id, tag)
                     

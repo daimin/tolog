@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//templates/edit.html=UTF-8
+encoding//templates/index.html=UTF-8
+encoding//templates/new.html=UTF-8
+encoding//templates/view.html=UTF-8
+encoding/<project>=UTF-8
+encoding/conf.py=utf-8
+encoding/index.py=utf-8
+encoding/model.py=utf-8
+encoding/util.py=utf-8

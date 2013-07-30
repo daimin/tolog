@@ -1,25 +1,54 @@
 $def with (form)
+<style type="text/css">
+#epiceditor_container{
+  height:450px;
+}
+</style>
 
-
-<h1>新的博客日志</h1>
+<h1>新的博客日志 (<a target="_blank" href="http://wowubuntu.com/markdown">采用Markdown</a>)</h1>
 <form action="" method="post">
 $:form.render()
 </form>
-
-<link rel="stylesheet" href="/static/js/kindeditor/themes/default/default.css" />
-<script charset="utf-8" src="/static/js/kindeditor/kindeditor-min.js"></script>
-<script charset="utf-8" src="/static/js/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="/static/js/epiceditor/js/epiceditor.min.js"></script>
 <script type="text/javascript">
-var editor;
-KindEditor.ready(function(K) {
-	editor = K.create('textarea[name="content"]', {
-		resizeType : 1,
-		allowPreviewEmoticons : false,
-		allowImageUpload : false,
-		items : [
-			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-			'insertunorderedlist', '|', 'emoticons', 'image', 'link','code']
-	});
+jQuery(function(){
+	jQuery("#content").hide();
+	jQuery("#content").after('<div id="epiceditor_container"></div>');
+	var opts = {
+			  container: 'epiceditor_container',
+			  textarea: 'content',
+			  basePath: '/static/js/epiceditor',
+			  clientSideStorage: false,
+			  localStorageName: 'epiceditor',
+			  useNativeFullscreen: true,
+			  parser: marked,
+			  file: {
+			    name: 'epiceditor',
+			    defaultContent: '',
+			    autoSave: 100
+			  },
+			  theme: {
+			    base: '/themes/base/epiceditor.css',
+			    preview: '/themes/preview/preview-dark.css',
+			    editor: '/themes/editor/epic-dark.css'
+			  },
+			  button: {
+			    preview: true,
+			    fullscreen: true
+			  },
+			  focusOnLoad: false,
+			  shortcut: {
+			    modifier: 18,
+			    fullscreen: 70,
+			    preview: 80
+			  },
+			  string: {
+			    togglePreview: '切换预览模式',
+			    toggleEdit: '切换编辑模式',
+			    toggleFullscreen: '全屏'
+			  }
+			}
+	var editor = new EpicEditor(opts).load();
+	
 });
 </script>

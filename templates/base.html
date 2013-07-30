@@ -29,7 +29,7 @@ $def with (page)
         	<div class="logo">
                 <a title="点滴记忆" href="/" style="cursor:pointer;"><img src="/static/image/logo.png" alt="点滴记忆"/><i></i></a>
             </div>
-        	<h1><a href="/">点滴记忆</a></h1>
+        	<div class="h1"><a href="/">点滴记忆</a></div>
             <div class="text">致我们的过去与未来</div>    
     </div>
     <div class="sch">
@@ -38,11 +38,11 @@ $def with (page)
         </form>
     </div>
     <ul class="sidelist">
-        <li><a title="Rss" class="list_1" target="_blank" href="/rss/$page.pageno"></a></li>
-        <li><a title="留言" class="list_2" href="/view/16"></a></li>
-		<li><a title="私信" class="list_4" rel="nofollow" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=CnxrbWt5ZGtjZkp7eyRpZWc"></a></li>
+        <li style="list-style: none"><a title="Rss" class="list_1" target="_blank" href="/rss/$page.pageno"></a></li>
+        <li style="list-style: none"><a title="留言" class="list_2" href="/view/16"></a></li>
+		<li style="list-style: none"><a title="私信" class="list_4" rel="nofollow" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=CnxrbWt5ZGtjZkp7eyRpZWc"></a></li>
         $if page.login_user is not None and page.login_user != '':
-            <li><a title="新日志" class="list_3" href="/new"></a></li>
+            <li style="list-style: none"><a title="新日志" class="list_3" href="/new"></a></li>
     </ul>
 </div>
 
@@ -82,6 +82,7 @@ function doSearch(fs){
    return false;
    
 }
+
 </script>
 </body>
 </html>

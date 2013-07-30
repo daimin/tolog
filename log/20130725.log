@@ -1,0 +1,20 @@
+2013-07-25 09:29:24,233 log : 29 : INFO initialize logger
+2013-07-25 09:29:40,490 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:29:53,187 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:29:56,015 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:29:59,200 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:30:02,028 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:30:03,839 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:30:15,177 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%w%'
+2013-07-25 09:30:18,316 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%问问%'
+2013-07-25 09:30:28,671 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:30:29,515 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:30:33,232 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content`
+2013-07-25 09:43:45,312 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:47,515 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:49,030 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:49,733 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:50,265 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:50,733 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:51,015 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
+2013-07-25 09:43:51,265 model : 21 : INFO SELECT COUNT(`id`) AS cid FROM `to_content` where `title` like '%123%'
