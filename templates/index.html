@@ -1,0 +1,72 @@
+$def with (posts, pageDict, login_user, action_url)
+$var login_user :$login_user
+$var pageno :$pageDict['pageno']
+<div class="box wid700">
+    $for post in posts:
+        $code:
+            cdate =  datefmt(post.createtime,'%d')
+            cmonth = datefmt(post.createtime,'%m')
+        <div class="block article">
+            <div class="side">
+                <div class="day">
+                    <a href="/date/$cdate">$cdate</a>
+                </div>
+                <div class="month">
+                    <a href="/month/$cmonth">$cmonth</a>
+                </div>
+            $if login_user is not None:
+                <div class="edit"><a href="/edit/$post.id">编辑</a></div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <div class="text">
+                        <h2> <a href="/view/$post.id">
+        $post.title
+                       </a><div class="view-num">被瞄了$post.view_num次</div></h2>
+                        <div class="summary">$:post.content</div>
+                        <div class="tag">
+                        $for tag in post.tags:
+                            <a href="/tag/$tag.id">$tag.title</a>
+                        </div>
+                        <div class="sort"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="page">
+        $code:
+            prevPage = nextPage = 1
+            if posts is not None and pageDict is not None:
+                prevPage = pageDict['pageno'] - 1
+                nextPage = pageDict['pageno'] + 1
+        
+        $if pageDict is not None and  pageDict['pageno'] == 1: 
+            <div class="prev disable">
+                <span class="cap"></span>
+                <span class="arrow"></span>
+                <span class="title">上一页</span>
+            </div>
+        $else:
+            <div class="prev active">
+                <a href="$action_url$prevPage" style="cursor: pointer; width: 20px;">
+                    <span class="cap"></span>
+                    <span class="arrow"></span>
+                    <span class="title" style="display: none;">上一页</span>
+                </a>
+            </div>
+        $if pageDict is not None and pageDict['pageno'] == pageDict['pagecount']:
+            <div class="next disable">
+                <span class="cap"></span>
+                <span class="arrow"></span>
+                <span class="title" style="display: none;">下一页</span>
+            </div>
+        $else:    
+            <div class="next active">
+                <a href="$action_url$nextPage" style="cursor: pointer; width: 20px;">
+                    <span class="cap"></span>
+                    <span class="arrow"></span>
+                    <span class="title" style="display: none;">下一页</span>
+                </a>
+            </div>
+    </div>
+</div>

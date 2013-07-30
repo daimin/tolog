@@ -1,0 +1,87 @@
+$def with (page)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>点滴记忆</title>
+<meta content="记忆,过去,未来" name="Keywords">
+<meta content="点滴记忆,致我们的过去与未来" name="Description">
+<meta name="generator" content="tolog" />
+<link rel="shortcut icon" href="/static/image/favicon.ico" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery.min.js" type="text/javascript"></script>
+<link rel="Stylesheet" type="text/css" href="/static/js/prettify/prettify.css" />
+<script type="text/javascript"  src="/static/js/prettify/prettify.js"></script>
+</head>
+<body>
+<div id="control" class="boprt">
+	<ul>
+		<li><form><a target="_top" class="boprt02" href="http://t.qq.com/vagasnail"><em>关注</em></a></form></li>
+        $if page.login_user is None or  page.login_user == '':
+            <li><form><a target="_top" class="boprt11" href="/login/"><em>登陆</em></a></form></li>
+        $else:
+            <li><form><a target="_top" class="boprt12" href="/logout/"><em>注销</em></a></form></li>
+    </ul>
+</div>
+<div class="h95"></div>
+<div class="box wid700"> 
+    <div class="selfinfo">
+        	<div class="logo">
+                <a title="点滴记忆" href="/" style="cursor:pointer;"><img src="/static/image/logo.png" alt="点滴记忆"/><i></i></a>
+            </div>
+        	<h1><a href="/">点滴记忆</a></h1>
+            <div class="text">致我们的过去与未来</div>    
+    </div>
+    <div class="sch">
+        <form name="keyform" method="get" action="/search" onsubmit="return doSearch(this)">
+            <input type="text" class="txt" onblur="if(this.value==''){this.value='搜索';}" onfocus="if(this.value=='搜索'){this.value='';}" name="keyword" value="搜索">
+        </form>
+    </div>
+    <ul class="sidelist">
+        <li><a title="Rss" class="list_1" target="_blank" href="/rss/$page.pageno"></a></li>
+        <li><a title="留言" class="list_2" href="/view/16"></a></li>
+		<li><a title="私信" class="list_4" rel="nofollow" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=CnxrbWt5ZGtjZkp7eyRpZWc"></a></li>
+        $if page.login_user is not None and page.login_user != '':
+            <li><a title="新日志" class="list_3" href="/new"></a></li>
+    </ul>
+</div>
+
+$:page
+
+<div class="footer">
+	<span style="cursor:pointer;" title="Copyright">&copy;</span>
+  &nbsp;<a href="/">点滴记忆</a>
+	&nbsp;|&nbsp;Powered by 
+	<a href="http://daimin.github.io" title="tologd 0.0.2">tologd</a>
+  &nbsp;|&nbsp;Theme by <a href="/">Tod.</a>
+</div>
+<script type="text/javascript">
+jQuery(function(){
+	
+	jQuery("pre").addClass("prettyprint linenums");
+    prettyPrint();
+    jQuery(".active a").each(function(){	
+    	jQuery(this).hover(
+			function(){
+				jQuery(this).css("cursor","pointer");
+				jQuery(this).stop();
+				jQuery(this).animate({width:90},400,function(){jQuery(this).children(".title").css("display","block");})},
+			function(){
+				jQuery(this).stop();	
+				jQuery(this).children(".title").css("display","none");
+				jQuery(this).animate({width:20},400)})
+	});
+
+});
+
+function doSearch(fs){
+   var keyword = fs.keyword.value;
+   keyword = jQuery.trim(keyword);
+   if(keyword == '') return false;
+   window.location = fs.action + "/" + keyword;
+   return false;
+   
+}
+</script>
+</body>
+</html>

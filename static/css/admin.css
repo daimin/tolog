@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+   font-family:"Microsoft YaHei",\5FAE\8F6F\96C5\9ED1,tahoma,arial,simsun,\5B8B\4F53;
+}
+h1{
+   text-align:center;
+   font-size:18px;
+   font-weight:bold;
+   margin-bottom: 24px;
+   margin-top:24px;
+}
+h1 span{
+  color:#66f;
+}
+
+form table{
+   margin:0px auto;
+}
+#content{
+   width:710px;
+}
+#title,#tag{
+   width:700px;
+   height:24px;
+   font-size:14px;
+   font-weight:bold;
+   margin-bottom:12px;
+   padding-left:6px;
+   margin-top:12px;
+}
+#delete-btn{
+   border:0px solid #f00;
+   margin-bottom:30px;
+   color:#f22;
+   margin-left:60%;
+   height:24px;
+   font-size:18px;
+   font-weight:bold;
+   width:200px;
+   cursor: pointer;
+   margin-top:30px;
+}
+
+#submit_btn {
+   padding:2px 12px;
+   font-size:14px;
+}
+
+#main-content{
+	padding:24px;
+	margin:0 auto;
+	width:1000px;
+}

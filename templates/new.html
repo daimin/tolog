@@ -1,0 +1,25 @@
+$def with (form)
+
+
+<h1>新的博客日志</h1>
+<form action="" method="post">
+$:form.render()
+</form>
+
+<link rel="stylesheet" href="/static/js/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/static/js/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/static/js/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('textarea[name="content"]', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : false,
+		items : [
+			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|', 'emoticons', 'image', 'link','code']
+	});
+});
+</script>
