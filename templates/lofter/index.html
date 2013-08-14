@@ -1,7 +1,12 @@
-$def with (posts, pageDict, login_user, action_url)
+$def with (posts, pageDict, login_user, action_url, logo_img, sub_title)
 $var login_user :$login_user
 $var pageno :$pageDict['pageno']
-<div class="box wid700">
+$var logo_img : $logo_img
+$var sub_title : $sub_title
+<!-- UYAN COUNT BEGIN -->
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1794396"></script> 
+<!-- UYAN COUNT END -->
+<div class="box wid1000">
     $for post in posts:
         $code:
             cdate =  datefmt(post.createtime,'%d')
@@ -22,8 +27,10 @@ $var pageno :$pageDict['pageno']
                     <div class="text">
                         <h2> <a href="/view/$post.id">
         $post.title
-                       </a><div class="view-num">被瞄了$post.view_num次</div></h2>
-                        <div class="summary">$:post.content</script></div>
+                       </a>
+                        <div class="comment-num"><a href="/view/$post.id" id="uyan_count_unit" du="codecos.com">0条评论</a></div>
+                        <div class="view-num">$post.view_num次浏览</div></h2>
+                        <div class="summary">$:post.content</div>
                         <div class="tag">
                         $for tag in post.tags:
                             <a href="/tag/$tag.id">$tag.title</a>

@@ -1,7 +1,9 @@
-$def with (post, prev_post, next_post, login_user)
+$def with (post, prev_post, next_post, login_user, logo_img, sub_title)
 $var login_user :$login_user
 $var pageno :1
-<div class="box wid700">
+$var logo_img : $logo_img
+$var sub_title : $sub_title
+<div class="box wid1000">
     <div class="block article">
         $code:
             cdate =  datefmt(post.createtime,'%d')
@@ -17,7 +19,8 @@ $var pageno :1
                     <div class="text">
                         <h2> <a href="/view/$post.id">
         $post.title
-                       </a><div class="view-num">被喵了$post.view_num次</div></h2>
+                       </a>
+                       <div class="view-num">被喵了$post.view_num次</div></h2>
                        
                         <div class="summary">$:post.content</div>
                         <div class="tag">
@@ -29,6 +32,11 @@ $var pageno :1
                 </div>
                 <div class="clear:both;">&nbsp;</div>
                 <!-- UY BEGIN -->
+<script type="text/javascript">
+var uyan_config = {
+   'du':'codecos.com'
+};
+</script>
                 <div id="uyan_frame"></div>
                 <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1794396"></script>
                 <!-- UY END -->

@@ -1,0 +1,11 @@
+User-Agent: Baiduspider
+Allow: /
+Disallow: /static/
+Disallow: /draft/
+Disallow: /tag-manage/
+Disallow: /publish/
+Disallow: /edit/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /new/
+

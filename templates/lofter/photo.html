@@ -1,0 +1,29 @@
+$def with (photos)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>我的相册</title>
+<link rel="shortcut icon" href="/static/image/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/js/polaroid_photo_viewer/css/style.css"/>
+<link rel="stylesheet" href="/static/js/lightbox/css/lightbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla:400,700">
+
+
+</head>
+<body>
+    $for photo in photos:
+        <div class="polaroid">
+            <a data-lightbox="roadtrip" href="$photo[0]"><img src="$photo[1]" alt="Colloseum" /> </a>
+            <!-- <p>Coloseum in Rome</p> -->
+        </div>
+<script type="text/javascript" src="/static/js/lightbox/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/static/js/ui/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="/static/js/ui/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="/static/js/ui/jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="/static/js/ui/jquery.ui.draggable.min.js"></script>
+<script type="text/javascript" src="/static/js/polaroid_photo_viewer/js/script.js"></script>
+<script type="text/javascript" src="/static/js/lightbox/js/lightbox-2.6.min.js"></script>
+  <div style="font-size:12px;color:#ccc;position:absolute;top:800px;">感谢<a href="http://www.qiniu.com/" target="_blank">七牛云存储提供文件存储</a></div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<script type="text/javascript">
+<!--
+function del_attac(o, aid){
+	console.log(aid);
+	if(aid){
+		$.post("/admin/del-attac/"+aid,{},function(){
+			$(o).parent().remove();
+		});
+	}
+
+}
+//-->
+</script>
+</body>
+</html>

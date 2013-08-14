@@ -52,6 +52,7 @@ a, a:hover, .day{color:#828d95}
 .list_3{background-position:5px -22px}
 .list_2{background-position:5px -52px}
 .list_1{background-position:5px -82px}
+.list_6{background:url("../image/albums.gif") no-repeat center center;}
 /*====content====*/
 .block{margin:0 0 35px}
 .side{width:84px; float:left}

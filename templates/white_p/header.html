@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://localhost/typecho/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>
+% if page.get_conf('sub_title') :
+    ${page.get_conf('sub_title')} - ${page.get_conf('title')}
+% else:
+    ${page.get_conf('title')}
+% endif
+</title>
+<meta name="keywords" content="${page.get_conf('keywords')}" />
+<meta name="description" content="${page.get_conf('description')}" />
+<meta name="generator" content="${page.get_conf('generator')}" />
+<meta name="baidu-site-verification" content="HWme31Ede9" />
+<link rel="shortcut icon" href="/static/image/favicon.ico" />
+<!--[if lt IE 9]>
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" media="all" href="/static/css/white_p/style.css">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script language="javascript" src="/static/js/white_p/base.js"></script>
+<link rel="Stylesheet" type="text/css" href="/static/js/prettify/desert.css" />
+<link rel="Stylesheet" type="text/css" href="/static/js/prettify/prettify.css" />
+<script type="text/javascript"  src="/static/js/prettify/prettify.js"></script>
+<script type="text/javascript">if (top.location != self.location){top.location=self.location;}</script>
+<script type="text/javascript">
+var uyan_config = {
+   'du':'codecos.com'
+};
+</script>
+<%
+rss_pageno = 1
+if hasattr(page, 'pageDict'):
+    rss_pageno = page.pageDict['pageno']
+%>
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/rss/${rss_pageno}">
+<script type="text/javascript">
+    var uyan_config = {
+        'du':'codecos.com'
+    };
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<header id="blog_title">
+        	<h1><a href="/">${page.get_conf('title')}</a></h1>
+        </header>
+		<nav id="menu">
+			<ul>
+				<li><a href="/">博客</a></li>
+				<li><a href="/view/14">留言</a></li>
+                <li><a target="_blank" href="/photo/">相册</a></li>
+                %if page.login_user is not None:
+                <li><a href="/admin/new/">添加文章</a></li>
+                %endif
+				<li><a href="/rss/${rss_pageno}" class="menu-rss" target="_blank">Subscribe</a></li>
+			</ul>
+		</nav>
+		<div class="clear"></div>
+    </div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?type=left&amp;move=0&amp;btn=l8.gif&amp;uid=1355186795124515" charset="utf-8"></script>
+<!-- JiaThis Button END -->

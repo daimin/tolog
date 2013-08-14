@@ -1,0 +1,71 @@
+<%include file="header.html"/>
+<script type="text/javascript" src="/static/js/jquery.upload.js"></script>
+<h1>编辑 <span>${form.d.title}</span> (<a target="_blank" href="http://wowubuntu.com/markdown">采用Markdown</a>)</h1>
+<%
+attac_list = None
+if page.attacs is not None:
+    attac_list = []
+    for attac in page.attacs:
+        url = attac.path
+        attac_list.append('<div><a href="http://%s">%s</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="insert_attac(\'%s\',\'%s\',\'%s\')">插入</a>\
+                &nbsp;&nbsp;<a href="javascript:void(0)" onclick="del_attac(this,\'%d\')">删除</a></div>'\
+                %(url,attac.title, attac.id, url, attac.title, attac.id))
+    attac_list = "".join(attac_list)
+    attac_list = attac_list.replace(r'"', r'\"')
+%>
+<form action="" method="post">
+${form.render()}
+</form>
+
+
+<script type="text/javascript">
+$(function(){
+    $("#attac").after('<div id="attac_list"></div>');
+	$("#attac").click(function(){
+    	return doupload();
+    });
+
+	% if attac_list is not None:
+		(function(){
+			$("#attac_list").append("${attac_list}");
+		})();
+	% endif
+});
+
+function render_attac_list(data){
+	$("#attac_list").append('<div><a href="http://' + data['url'] + '">' + data['name'] + 
+			'</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="insert_attac(\'' + data['id'] + '\',\'' + 
+					data['url'] + '\', \'' + data['name'] + '\')">插入</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="del_attac(this,\'' + 
+					data['id']+ '\')">删除</a></div>');
+	$("#attacs").val($("#attacs").val() + '|' + data['id']);
+}
+
+function insert_attac(id, url,name){
+	$("#content").val($("#content").val() + '![' + name +'](http://' + url + ' "Optional title")');
+	
+}
+
+function doupload(){
+	  $.upload({
+	         // 上传地址
+	         url: '/admin/upload/', 
+	         // 文件域名字
+	         fileName: 'attac', 
+	         // 其他表单数据
+	         params: {name: 'pxblog'},
+	         // 上传完成后, 返回json, text
+	         dataType: 'text',
+	         // 上传之前回调,return true表示可继续上传
+	         onSend: function() {
+	              return true;
+	         },
+	         // 上传之后回调
+	         onComplate: function(data) {
+	        	 data = window.eval('(' + data + ')');
+	        	 render_attac_list(data);
+	         }
+	 }); 
+	  return false;
+}  
+</script>
+<%include file="footer.html"/>

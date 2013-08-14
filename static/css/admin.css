@@ -5,14 +5,13 @@
 }
 
 body{
-   font-family:"Microsoft YaHei",\5FAE\8F6F\96C5\9ED1,tahoma,arial,simsun,\5B8B\4F53;
+   font-family:"Microsoft YaHei",tahoma,arial,simsun;
 }
 h1{
    text-align:center;
    font-size:18px;
    font-weight:bold;
    margin-bottom: 24px;
-   margin-top:24px;
 }
 h1 span{
   color:#66f;
@@ -23,6 +22,11 @@ form table{
 }
 #content{
    width:710px;
+   font-family:Menlo,Monaco,Consolas,"Courier New",monospace;
+   padding:6px;
+   background:#333;
+   color:#fff;
+   height:500px;
 }
 #title,#tag{
    width:700px;
@@ -55,4 +59,209 @@ form table{
 	padding:24px;
 	margin:0 auto;
 	width:1000px;
+	background:#eee;
+}
+
+BODY {
+	line-height: 140%;
+	FONT-SIZE: 12px;
+}
+
+TABLE	{font-family: Verdana, PMingLiU; FONT-SIZE: 11px; line-height: 140%;}
+UL		{font-family: Verdana, PMingLiU; FONT-SIZE: 11px; line-height: 140%;}
+LI		{font-family: Verdana, PMingLiU; FONT-SIZE: 11px; line-height: 140%;}
+P		{font-family: Verdana, PMingLiU; FONT-SIZE: 11px; line-height: 140%;}
+TD		{font-family: Verdana, PMingLiU; FONT-SIZE: 11px; line-height: 140%;}
+
+A:LINK		{
+	TEXT-DECORATION: none;
+	color: #000000;
+}
+A:VISITED	{
+	TEXT-DECORATION: none;
+	color: #000000;
+}
+A:HOVER		{
+	text-decoration: underline;
+	color: #000000;
+}
+A:ACTIVE	{
+	COLOR: #000000;
+}
+
+FORM {
+	font-family: Verdana, PMingLiU;
+	FONT-SIZE: 11px
+}
+SELECT{
+	font-family: Verdana, PMingLiU;
+	COLOR: #000000;
+	FONT-SIZE: 11px;
+	background-color: #FFFFFF;
+	padding: 3px 2px 2px;
+}
+INPUT{
+	font-family: Verdana, PMingLiU;
+	COLOR: #000000;
+	FONT-SIZE: 11px;
+	background-color: #FFFFFF;
+	padding: 3px 2px 2px;
+	height: 20px;
+	border: 1px solid #CCCCCC;
+}
+TEXTAREA{
+	font-family: Verdana, PMingLiU;
+	COLOR: #000000;
+	FONT-SIZE: 11px;
+	border-top: 1px inset;
+	border-left: 1px inset;
+	color: black;
+	padding: 5px;
+}
+
+.button {
+	width: 60px;
+	height: 25px;
+	padding-top: 5px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+}
+#submitrow INPUT	{BACKGROUND-COLOR:#40364d; COLOR: #f5d300; FONT-WEIGHT: bold}
+.firstalt	{BACKGROUND-COLOR: #FFFFFF}
+.secondalt	{BACKGROUND-COLOR: #F3F3F3}
+.onlyalt	{BACKGROUND-COLOR: #FFFFFF}
+.tblhead	{BACKGROUND-COLOR: #F3F3F3; COLOR:#000000; FONT-SIZE:11px}
+.tblborder	{border: 1px solid #5a7594}
+.tdborder	{BACKGROUND-COLOR: #FFFFFF}
+
+#navbody 		{COLOR: #3F3849; font-family: Verdana, PMingLiU; FONT-SIZE: 11px; BACKGROUND-COLOR: #51485F}
+#navbody TD 	{font-family: Verdana, PMingLiU; FONT-SIZE: 11px}
+#navbody A:LINK	{COLOR: #9A91AA; font-family: Verdana, PMingLiU; FONT-SIZE: 11px}
+#navbody A:VISITED	{COLOR: #9A91AA; font-family: Verdana, PMingLiU;}
+#navbody A:HOVER	{COLOR: #F5D300; font-family: Verdana, PMingLiU; BACKGROUND-COLOR: #40364d}
+#navbody A:ACTIVE	{COLOR: #F5D300; font-family: Verdana, PMingLiU; BACKGROUND-COLOR: #40364d}
+#navbody .tblhead	{COLOR: #BCB6CD; font-family: Verdana, PMingLiU;}
+
+.size1		{FONT-SIZE: 11px}
+.size2		{FONT-SIZE: 11pt} 
+.size3		{font-family: Verdana, PMingLiU; FONT-SIZE: 11px} 
+
+.space{
+	PADDING-TOP: 4px; 
+	PADDING-BOTTOM: 4px; 
+	PADDING-LEFT: 5px; 
+	MARGIN-TOP: 4px; 
+	MARGIN-BOTTOM: 4px
+	MARGIN-LEFT: 5px
+}
+.formfield {
+	border-top: 1px inset;
+	font-size: 11px;
+	border-left: 1px inset;
+	color: black;
+	font-family: Verdana, PMingLiU;
+	background-color: #FFFFFF;
+	padding: 3px 2px 2px;
+}
+.formbutton {
+	border-right: #4f4f4f 1px solid;
+	border-top: #f6f6f6 1px solid;
+	font-size: 11px;
+	background: #dddddd;
+	border-left: #f6f6f6 1px solid;
+	border-bottom: #4f4f4f 1px solid;
+	font-family: Verdana, PMingLiU;
+}.welcome {
+	font-family: Verdana, PMingLiU;
+	font-size: 18px;
+	font-weight: bold;
+}
+.nonebg {
+	border: none;
+	background-color: transparent
+}
+.graybg {
+	border: none;
+	background-color: #f3f3f3;
+}
+#status, #attac{
+	margin-bottom:12px;
+}
+#submit_btn{
+	margin-bottom:24px;
+}
+#attac_list{
+	margin-bottom:12px;
+}
+.list-tab{
+	text-align:left;
+	margin:0 auto;
+	border:1px solid #ccc;
+}
+
+.list-tab tr td,th{
+	padding-left:6px;
+	height:32px;
+}
+
+.list-tab tr th{
+	background:#888;
+	color:#fff;
+}
+
+.list-tab tr:hover{
+	background:#dfdfef;
+}
+
+.list-tab .thin{
+	background:#dfdfff;
+}
+
+.list-tab .even{
+	background:#efefef;
+}
+
+.page-navigator{
+	float:right;
+}
+.page-navigator a{
+	margin-right:3px;
+}
+.draft{
+	color:#f00;
+	font-weight:bold;
+}
+
+.tags{ 
+	margin:0px 32px;
+}
+
+.tags .tag-item{
+	float:left;
+	margin-right:12px;
+	background:#ccc;
+	padding:12px 16px;
+	margin-bottom:24px;
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+}
+
+.tags .tag-item .count{
+	margin-left:12px;
+	font-size:12px;
+	font-style:italic;
+	color:#44d;
+	float:right;
+}
+
+.tags .tag-item .close{
+	margin-left:12px;
+	font-size:12px;
+	color:#c00;
+	float:right;
+	margin-top:-12px;
+	margin-right:-12px;
+	cursor: pointer;
 }

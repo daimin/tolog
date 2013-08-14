@@ -1,0 +1,37 @@
+<%include file="header.html"/>
+<section id="content">
+% for post in page.posts:
+        <article class="post">
+            <div class="info">
+                %if page.login_user is not None:
+                <span><a href="/admin/edit/${post.id}">编辑</a></span>
+                %endif
+                <span><strong>${post.view_num}</strong>次阅读</span>
+                <a href="/view/${post.id}" id="uyan_count_unit" du="codecos.com"><strong>0</strong>条评论</a>
+            </div>
+            <div class="date">
+                <span class="day">${page.datefmt(post.createtime,'%d')}</span>
+                <span class="time">${page.datefmt(post.createtime,'%b')}</span>
+                <span class="year">${page.datefmt(post.createtime,'%Y')}</span>
+            </div>
+            <header>
+                <h2><a href="/view/${post.id}">${post.title}</a></h2>
+            </header>
+            <div class="con">
+            ${post.content}
+            <div class="read-full">
+                <a href="/view/${post.id}">猛击阅读全文</a>
+            </div>
+            </div>
+
+        </article>
+% endfor
+
+    <div class="post">
+        <ol class="page-navigator">
+            ${page.render_page("current")}
+        </ol>
+    </div>
+</section>
+<%include file="sidebar.html"/>
+<%include file="footer.html"/>

@@ -3,9 +3,14 @@ $def with (page)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>点滴记忆</title>
-<meta content="记忆,过去,未来" name="Keywords">
-<meta content="点滴记忆,致我们的过去与未来" name="Description">
+<title> 
+$if len(page.sub_title) > 0: 
+    $page.sub_title - code of cos
+$else:
+    code of cos
+</title>
+<meta content="记忆,过去,生活,工作,技术,java,python,php,nodejs,golang,linux" name="Keywords">
+<meta content="记录生活的点点滴滴，记录工作学习的感悟" name="Description">
 <meta name="generator" content="tolog" />
 <link rel="shortcut icon" href="/static/image/favicon.ico" />
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
@@ -23,14 +28,14 @@ $def with (page)
             <li><form><a target="_top" class="boprt12" href="/logout/"><em>注销</em></a></form></li>
     </ul>
 </div>
-<div class="h95"></div>
-<div class="box wid700"> 
+<div class="h95"></div> 
+<div class="box wid1000"> 
     <div class="selfinfo">
         	<div class="logo">
-                <a title="点滴记忆" href="/" style="cursor:pointer;"><img src="/static/image/logo.png" alt="点滴记忆"/><i></i></a>
+                <a title="code of cos" href="/" style="cursor:pointer;"><img src="/static/image/logos/$page.logo_img" alt="转身时"/><i></i></a>
             </div>
-        	<div class="h1"><a href="/">点滴记忆</a></div>
-            <div class="text">致我们的过去与未来</div>    
+        	<div class="h1"><a href="/">code of cos</a></div>
+            <div class="text">学习和生活的点点滴滴</div>    
     </div>
     <div class="sch">
         <form name="keyform" method="get" action="/search" onsubmit="return doSearch(this)">
@@ -39,7 +44,8 @@ $def with (page)
     </div>
     <ul class="sidelist">
         <li style="list-style: none"><a title="Rss" class="list_1" target="_blank" href="/rss/$page.pageno"></a></li>
-        <li style="list-style: none"><a title="留言" class="list_2" href="/view/16"></a></li>
+        <li style="list-style: none"><a title="相册" class="list_6" href="/photo/"></a></li>
+        <li style="list-style: none"><a title="留言" class="list_2" href="/view/14"></a></li>
 		<li style="list-style: none"><a title="私信" class="list_4" rel="nofollow" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=CnxrbWt5ZGtjZkp7eyRpZWc"></a></li>
         $if page.login_user is not None and page.login_user != '':
             <li style="list-style: none"><a title="新日志" class="list_3" href="/new"></a></li>
@@ -50,15 +56,16 @@ $:page
 
 <div class="footer">
 	<span style="cursor:pointer;" title="Copyright">&copy;</span>
-  &nbsp;<a href="/">点滴记忆</a>
+  &nbsp;<a href="/">code of cos</a>
 	&nbsp;|&nbsp;Powered by 
 	<a href="http://daimin.github.io" title="tologd 0.0.2">tologd</a>
-  &nbsp;|&nbsp;Theme by <a href="/">Tod.</a>
+  &nbsp;|&nbsp;Theme by <a href="/">Tod.</a>&nbsp;|&nbsp;
+  感谢<a href="http://www.qiniu.com/" target="_blank">七牛云存储提供文件存储</a>
 </div>
 <script type="text/javascript">
 jQuery(function(){
 	
-	jQuery("pre").addClass("prettyprint linenums");
+	jQuery("pre").addClass("prettyprint linenums"); 
     prettyPrint();
     jQuery(".active a").each(function(){	
     	jQuery(this).hover(
@@ -84,5 +91,6 @@ function doSearch(fs){
 }
 
 </script>
+<script src="http://s14.cnzz.com/stat.php?id=5556489&web_id=5556489&show=pic1" language="JavaScript">
 </body>
 </html>

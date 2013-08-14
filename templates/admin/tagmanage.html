@@ -1,0 +1,24 @@
+<%include file="header.html"/>
+<div class="tags">
+%for tag in page.tags:
+	<div class="tag-item">
+	${tag['title']}
+	<span class="close" onclick="del_tag(${tag['id']})">x</span>
+	<span class="count">${tag['count']}</span>
+	
+	</div>
+%endfor
+</div>
+<script type="text/javascript">
+<!--
+function del_tag(tid){
+	if(window.confirm("确定删除该标签？")){
+		$.post("/admin/tag-manage/", {'tid': tid, 'action':'delete'}, function(){
+			window.location.reload();
+		});	
+	}
+	
+}
+//-->
+</script>
+<%include file="footer.html"/>

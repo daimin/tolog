@@ -1,0 +1,60 @@
+<div class="clear"></div>
+<footer id="footer">
+    <div class="foot">
+    	<a id="gotop" href="javascript:void(0);" onclick="MGJS.goTop();return false;">TOP</a>
+		<div class="copy">Copyright ©  2013-2014 codecos | Powered by <a href="https://github.com/daimin/tolog">tolog</a> | Theme by <a href="http://pagecho.com/">cho</a>  Thanks for <a href="http://www.qiniu.com/" target="_blank">七牛云存储提供文件存储</a></div>
+	</div>
+</footer>
+</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+</script>
+<script type="text/javascript">
+function render_pretty(){
+    jQuery("pre").addClass("prettyprint linenums");
+    prettyPrint();
+
+}
+render_pretty();
+jQuery(function(){
+    menu_sel_current();
+});
+
+// 菜单当前项选中
+function menu_sel_current(){
+    var menuas = jQuery("#menu ul li a");
+    var chref = window.location.href;
+    var menuas = menuas.toArray();
+    var has_current = false;
+    for(var i = 0,len = menuas.length;i < len; i++){
+         var qo = jQuery(menuas[i]);
+         var qhref = qo.attr("href");
+         if(qhref != '/' && qhref != ''){
+             if(chref.indexOf(qhref) != -1){
+    		    qo.parent().addClass("current");
+                has_current = true;
+                break;
+       	     }else{
+            		qo.parent().removeClass("current");
+       	     }
+         }
+
+    }
+    if(!has_current){
+        jQuery(menuas[0]).parent().addClass("current");
+    }
+}
+
+function doSearch(fs){
+   var keyword = fs.keyword.value;
+   keyword = jQuery.trim(keyword);
+   if(keyword == '') return false;
+   window.location = fs.action + "/" + keyword;
+   return false;
+
+}
+
+</script>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1794396"></script>
+<script src="http://s14.cnzz.com/stat.php?id=5556489&web_id=5556489&show=pic1" language="JavaScript"></script>
+</body></html>

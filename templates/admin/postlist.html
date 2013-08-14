@@ -1,0 +1,63 @@
+<%include file="header.html"/>
+<div>
+<form style="float:right;margin-bottom:12px;margin-right:12px;" name="sform" action="">
+<input type="text" size="40" name="keyword" id="keyword" />
+<input type="submit"  value=" 查询 "/>
+</form>
+<table class="list-tab" width="98%" cellspacing="0" cellpadding="" border="0">
+<tr>
+<th style="width:40%">标题</th>
+<th style="width:15%">创建时间</th>
+<th style="width:15%">修改时间</th>
+<th style="width:10%">浏览次数</th>
+<th style="width:10%">状态</th>
+<th style="width:10%">操作</th>
+</tr>
+<% c = 0 %>
+%for post in page.posts:
+<% 
+   c = c + 1 
+   tr_cls = 'thin'
+%>
+%if c % 2 == 0:
+<% 
+   tr_cls = 'even'
+%>
+%endif
+<tr class="${tr_cls}">
+<td>${post.title}</td>
+<td>${post.createtime}</td>
+<td>${post.modifytime}</td>
+<td>${post.view_num}</td>
+<td>
+% if post.status == 1:
+已发布
+%else:
+<span class="draft">草稿</span>
+%endif
+</td>
+<td><a href="/admin/edit/${post.id}">编辑</a> | <a href="javascript:void(0)" onclick="del_post('${post.id}')">删除</a></td>
+</tr>
+%endfor 
+<tr>
+<td colspan="6">
+<div class="page-navigator">
+  ${page.render_admin_page()}
+</div>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+<!--
+function del_post(pid){
+	if(window.confirm("确定删除该篇文档？")){
+		$.post("/admin/delete/" + pid, {}, function(){
+			window.location.reload();
+		});	
+	}
+	
+}
+//-->
+</script>
+<%include file="footer.html"/>

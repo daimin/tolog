@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<link rel="stylesheet" href="/static/css/admin.css" type="text/css">
+</head>
+<body leftmargin="20" topmargin="20" marginwidth="20" marginheight="20" style="table-layout:fixed; word-break:break-all;background:#DDD;">
+<script language="JavaScript" type="text/javascript">
+function showDiv(objID,imgID)
+{
+if (document.getElementById(objID).style.display == "none") {
+document.getElementById(objID).style.display = "";
+document.getElementById(imgID).src="/static/image/expand.gif"}else{
+document.getElementById(objID).style.display = "none";
+document.getElementById(imgID).src="/static/image/collapse.gif"}
+}
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="5" style="margin-top:40px;">
+<tbody>
+</tbody></table>
+<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
+<tbody><tr>
+<td bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+<tbody>
+	<tr class="tblhead" style="cursor: hand" onclick="javascript:showDiv('menu_1','img_1');">
+	<td class="space"><img src="/static/image/expand.gif" id="img_1" border="0"> <b>文章管理</b></td>
+	</tr>
+<!--  -->
+	<tr id="menu_1">
+		<td>
+			<table>
+				<tbody>
+				<tr class="onlyalt">
+				  <td style="PADDING-LEFT: 20px;"><a href="/admin/new/" target="mainFrame">添加文章</a></td>
+				</tr>
+				<tr class="onlyalt">
+				  <td style="PADDING-LEFT: 20px;"><a href="/admin/plist/" target="mainFrame">文章列表</a></td>
+				</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr class="tblhead" style="cursor: hand" onclick="javascript:showDiv('menu_2','img_2');">
+	<td class="space"><img src="/static/image/expand.gif" id="img_1" border="0"> <b>标签管理</b></td>
+	</tr>
+<!--  -->
+	<tr id="menu_2">
+		<td>
+			<table>
+				<tbody>
+				<tr class="onlyalt">
+				  <td style="PADDING-LEFT: 20px;"><a href="/admin/tag-manage/" target="mainFrame">标签管理</a></td>
+				</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+
+</body></html>
