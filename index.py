@@ -20,7 +20,7 @@ from web.contrib.template import render_mako
 import conf
 import util
 
-from bae.api import logging
+#from bae.api import logging
 
 
 #import log
@@ -89,8 +89,8 @@ render_admin = render_mako(
 import tempfile
 #tempfile.tempdir = os.getcwd() + os.path.sep + 'temp'
 #tempfile.TemporaryFile = util.TemporaryFile
-from bae.core import const
-tempfile.tempdir = const.APP_TMPDIR
+#from bae.core import const
+#tempfile.tempdir = const.APP_TMPDIR
  
 ##----------------------------------------------------------
 ## 公共基类
@@ -165,6 +165,7 @@ class Index(Base):
         self.set_conf('action_url', "/")
 
     def GET(self, page):
+        
         tmp_posts = model.get_posts(page)
         posts = tmp_posts[0]
         pageDict = tmp_posts[1]
@@ -591,11 +592,12 @@ class UploadHandler():
             s2 = StringIO.StringIO()
             #s.write(d)
             lines =  s1.readlines()
-            lines = lines[4:]
+            file_ext = util.get_file_ext(lines[1])
+            lines = lines[4:-5]
             s1.close()
                
             import time
-            filename = "pic_%d.jpg" % (int(time.time() * 1000))
+            filename = "qiniu_%d%s" % (int(time.time() * 1000), file_ext)
             #fout = open(filedir +'/'+ filename,'wb') 
             for line in lines:
                 s2.write(line)
@@ -653,12 +655,12 @@ def errNotFound():
     return web.notfound(render.e404())
 
 ########===============================================================######
-#web.config.debug = True
-#app = web.application(urls, globals())
-#app.notfound = errNotFound
-#if __name__ == "__main__":
-#    app.run()
-app = web.application(urls, globals()).wsgifunc()
+web.config.debug = True
+app = web.application(urls, globals())
+app.notfound = errNotFound
+if __name__ == "__main__":
+    app.run()
+#app = web.application(urls, globals()).wsgifunc()
 
-from bae.core.wsgi import WSGIApplication
-application = WSGIApplication(app)
+#from bae.core.wsgi import WSGIApplication
+#application = WSGIApplication(app)

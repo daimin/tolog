@@ -235,10 +235,10 @@ def del_post(id):
     #这里还需要删所有的关联
     #删除附件关联
     myvars = dict(rel_id=id)
-    db.delete(util.tab('attac_rel', where="rel_id=$rel_id", vars=myvars))
+    db.delete(util.tab('attac_rel'), where="rel_id=$rel_id", vars=myvars)
     #删除meta关联
     myvars = dict(cid=id)
-    db.delete(util.tab('rel', where="cid=$cid", vars=myvars))
+    db.delete(util.tab('rel'), where="cid=$cid", vars=myvars)
     
     myvars = dict(id=id)
     db.delete(util.tab('content'), where="id=$id", vars=myvars)

@@ -30,10 +30,13 @@ def encode_newLine(str):
     return str
 
 def read_static(f):
-    fileHandle = open ( f )
-    cont = fileHandle.read()
-    fileHandle.close()
-    return cont
+    try:
+        fileHandle = open ( f )
+        cont = fileHandle.read()
+        fileHandle.close()
+        return cont
+    except:
+        return None
 
 def get_page_dict(pageno, itemcount , pagesize=conf.page_size):
     pageno = 1 if pageno.strip() == '' else int(pageno)
@@ -196,3 +199,69 @@ def del_attac_qiniu(filename):
 def TemporaryFile(mode='w+b', bufsize=-1, suffix="", prefix='', dir=None): 
     return cStringIO.StringIO()
 
+def get_file_ext(disposition):
+    #Content-Disposition: form-data; name="attac"; filename="jquery.edatagrid.js"
+    filename = disposition.split(";")[2]
+    filename = filename.split('="')[1]
+    
+    filename = filename[0:filename.find('"')]
+    pidx = filename.rfind(".")
+    if pidx != -1:
+        fileext = filename[pidx:]
+        return fileext
+    return ''
+    
+@DeprecationWarning
+def get_req_ext(content_type):
+    if content_type == 'application/x-png' or content_type == "image/png":
+        return 'png'
+    elif content_type == 'application/vnd.ms-powerpoint':
+        return 'pps'
+    elif content_type == 'image/x-icon':
+        return 'icon'
+    elif content_type == 'text/html':
+        return 'html'
+    elif content_type == 'java/*':
+        return 'java'
+    elif content_type == 'image/jpeg':
+        return 'jpg'
+    elif content_type == 'application/x-jpg':
+        return 'jpg'
+    elif content_type == 'text/xml':
+        return 'xml'
+    elif content_type == 'application/pdf':
+        return 'pdf'
+    elif content_type == 'application/x-ppt':
+        return 'ppt'
+    elif content_type == 'image/tiff':
+        return 'tif'
+    elif content_type == 'video/avi':
+        return 'avi'
+    elif content_type == 'text/css':
+        return 'css'
+    elif content_type == 'application/x-msdownload':
+        return 'exe'
+    elif content_type == 'audio/mp3':
+        return 'mp3'
+    elif content_type == 'application/vnd.android.package-archive':
+        return 'apk'
+    elif content_type == 'application/x-javascript':
+        return 'js'
+    elif content_type == 'image/gif':
+        return 'gif'
+    elif content_type == 'application/x-bmp':
+        return 'bmp'
+    elif content_type == 'text/plain':
+        return 'txt'
+    elif content_type == 'application/zip':
+        return 'zip'
+    elif content_type == 'application/x-gzip':
+        return 'gz'
+    elif content_type == 'application/msword':
+        return 'doc'
+    elif content_type == 'application/vnd.ms-excel':
+        return 'xls'
+    elif content_type == 'application/zip':
+        return 'zip'
+    else:
+        return 'unknown'    
