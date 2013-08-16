@@ -120,7 +120,6 @@ def get_attac_post(postid):
     
     attacs = []
     for rel in rels:
-        print rel
         attac = db.select(util.tab('attac'), where='id=%s' % (rel.att_id))
         if attac is not None and len(attac) > 0:
             attacs.append(attac[0])

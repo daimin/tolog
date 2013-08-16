@@ -298,8 +298,10 @@ def rawinput(method=None):
                 # it can not be called multiple times. Saving the FieldStorage
                 # object in ctx to allow calling web.input multiple times.
                 a = ctx.get('_fieldstorage')
+                
                 if not a:
                     fp = e['wsgi.input']
+                    
                     a = cgi.FieldStorage(fp=fp, environ=e, keep_blank_values=1)
                     ctx._fieldstorage = a
             else:
@@ -327,6 +329,7 @@ def input(*requireds, **defaults):
     See `storify` for how `requireds` and `defaults` work.
     """
     _method = defaults.pop('_method', 'both')
+    
     out = rawinput(_method)
     try:
         defaults.setdefault('_unicode', True) # force unicode conversion by default.

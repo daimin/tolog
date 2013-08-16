@@ -20,6 +20,9 @@ from web.contrib.template import render_mako
 import conf
 import util
 
+from bae.api import logging
+
+
 #import log
 
 import model
@@ -46,11 +49,11 @@ urls = (
     r'/admin/new/?', 'New',
     r'/admin/delete/(\d+)', 'Delete',
     r'/admin/edit/(\d+)', 'Edit',
-    r'/admin/upload/', 'UploadHandler',
+    r'/admin/upload/?', 'UploadHandler',
     r'/admin/del-attac/(\d+)', 'DelAttacHandler',
     r'/admin/tag-manage/?', 'TagManageHandler',
     r'/rss/(\d*)', 'RssHandler',
-    r'/static/(.*)', 'StaticHandler',
+    #r'/static/(.*)', 'StaticHandler',
     r'/(.*)', 'StaticIndexHandler',
 )
 
@@ -83,6 +86,12 @@ render_admin = render_mako(
         output_encoding='utf-8',
         )
 
+import tempfile
+#tempfile.tempdir = os.getcwd() + os.path.sep + 'temp'
+#tempfile.TemporaryFile = util.TemporaryFile
+from bae.core import const
+tempfile.tempdir = const.APP_TMPDIR
+ 
 ##----------------------------------------------------------
 ## 公共基类
 ##----------------------------------------------------------
@@ -565,6 +574,7 @@ class Logout():
     
 class UploadHandler():
     def __init__(self):
+        pass
         import cgi
         cgi.maxlen = conf.upload_max
         
@@ -574,17 +584,47 @@ class UploadHandler():
     def POST(self):
         web.header('Content-Type', 'application/json') 
         try:
-            x = web.input(attac={})
-            filedir = "c:"
+            d = web.data()
+            #filedir = "c:"
+            import StringIO
+            s1 = StringIO.StringIO(d)
+            s2 = StringIO.StringIO()
+            #s.write(d)
+            lines =  s1.readlines()
+            lines = lines[4:]
+            s1.close()
+               
+            import time
+            filename = "pic_%d.jpg" % (int(time.time() * 1000))
+            #fout = open(filedir +'/'+ filename,'wb') 
+            for line in lines:
+                s2.write(line)
+            #fout.close()
+            s2.seek(0)
+            #print s2.read()
+            if util.upload_pic_qiniu(s2.read(), filename):
+                    #保存到数据库
+                res = model.save_attac(filename)
+                import json
+                return json.dumps({'id':res[0],'name':filename,'url':res[1]}) 
+            else:
+                return False
+            """
             if 'attac' in x:
                 filepath = x['attac'].filename.replace('\\','/') 
                 filename = filepath.split('/')[-1] 
                 fileext = filepath.split('.')[-1]
                 import time
                 filename = "pic_%d.%s" % (int(time.time() * 1000), fileext)
+                #import StringIO
+                #s = StringIO.StringIO()
+                #lines = x['attac'].file.readlines()
+                #for line in lines:
+                #    s.write(line)
                 #fout = open(filedir +'/'+ filename,'wb') 
                 #fout.write(x['attac'].file.read()) 
                 #fout.close() # closes the file, upload complete.
+
                 if util.upload_pic_qiniu(x['attac'].file.read(), filename):
                     #保存到数据库
                     res = model.save_attac(filename)
@@ -592,6 +632,7 @@ class UploadHandler():
                     return json.dumps({'id':res[0],'name':filename,'url':res[1]}) 
                 else:
                     return False
+                """
         except ValueError:
             return "File too large"
 
@@ -607,19 +648,17 @@ class StaticIndexHandler():
         return util.read_static(os.path.join(app_root, res))
 
 
-
-
 def errNotFound():
     render = web.template.render(templates_root, globals=t_globals)
     return web.notfound(render.e404())
 
 ########===============================================================######
-web.config.debug = True
-app = web.application(urls, globals())
-app.notfound = errNotFound
-if __name__ == "__main__":
-    app.run()
-#app = web.application(urls, globals()).wsgifunc()
+#web.config.debug = True
+#app = web.application(urls, globals())
+#app.notfound = errNotFound
+#if __name__ == "__main__":
+#    app.run()
+app = web.application(urls, globals()).wsgifunc()
 
-#from bae.core.wsgi import WSGIApplication
-#application = WSGIApplication(app)
+from bae.core.wsgi import WSGIApplication
+application = WSGIApplication(app)

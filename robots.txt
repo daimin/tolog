@@ -1,11 +1,8 @@
 User-Agent: Baiduspider
 Allow: /
 Disallow: /static/
-Disallow: /draft/
-Disallow: /tag-manage/
-Disallow: /publish/
-Disallow: /edit/
-Disallow: /login/
-Disallow: /logout/
-Disallow: /new/
-
+Disallow: /admin/
+Disallow: /templates/
+Disallow: /mako/
+Disallow: /qiniu/
+Disallow: /markdown/

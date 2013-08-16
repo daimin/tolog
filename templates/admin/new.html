@@ -22,7 +22,8 @@ function render_attac_list(data){
 }
 
 function insert_attac(id, url,name){
-	$("#content").val($("#content").val() + '![' + name +'](http://' + url + ' "Optional title")')
+  //$("#content").val($("#content").val() + '![' + name +'](http://' + url + ' "Optional title")')
+  insertText($("#content").get(0), '![' + name +'](http://' + url + ' "Optional title")');
 }
 
 function doupload(){

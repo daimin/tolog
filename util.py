@@ -4,6 +4,8 @@ import conf
 import math
 import sys
 import web
+import tempfile 
+import cStringIO
 
 import qiniu.conf
 qiniu.conf.ACCESS_KEY = conf.qiniu_access_key
@@ -36,7 +38,6 @@ def read_static(f):
 def get_page_dict(pageno, itemcount , pagesize=conf.page_size):
     pageno = 1 if pageno.strip() == '' else int(pageno)
     pageno = 1 if pageno < 1 else pageno
-    
 
     pagecount = int(math.floor((itemcount + pagesize - 1) / pagesize))
     pageno = pagecount if pageno > pagecount else pageno
@@ -189,3 +190,9 @@ def del_attac_qiniu(filename):
     if err is not None:
         return False
     return True
+  
+ 
+
+def TemporaryFile(mode='w+b', bufsize=-1, suffix="", prefix='', dir=None): 
+    return cStringIO.StringIO()
+

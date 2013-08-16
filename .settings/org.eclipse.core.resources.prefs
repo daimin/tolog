@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//qiniu/conf.py=utf-8
+encoding//qiniu/test/resumable_io_test.py=utf-8
 encoding//templates/admin/admin.html=UTF-8
 encoding//templates/admin/edit.html=UTF-8
 encoding//templates/admin/footer.html=UTF-8

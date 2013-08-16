@@ -1,22 +1,15 @@
 # -*- coding:utf-8 -*-
 # encoding: utf-8
 
-#from bae.core import const
+from bae.core import const
 
 #数据库配置
-db = {
-#      "dbn"      :"mysql",
-#      "dbname"   :"rccByoSlbDVOzrWdbYoA",
-#      "user"     :const.MYSQL_USER,
-#      "password" :const.MYSQL_PASS,
-#      "host"     : const.MYSQL_HOST,
-#      "port"     : int(const.MYSQL_PORT),
-      "dbn"      :"mysql",
-      "dbname"   :"webpy_blog",
-      "user"     :"root",
-      "password" :"daimin",
-      "host"     : "localhost",
-      "port"     : 3306,
+db = {"dbn"      :"mysql",
+      "dbname"   :"rccByoSlbDVOzrWdbYoA",
+      "user"     :const.MYSQL_USER,
+      "password" :const.MYSQL_PASS,
+      "host"     : const.MYSQL_HOST,
+      "port"     : int(const.MYSQL_PORT),
       }
 ##cookie键值
 cookie_secure = "61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o"
@@ -56,7 +49,6 @@ site = {
     ##生成工具
     "generator" : "tologd",
         }
-
 ##七牛存储配置
 qiniu_access_key = "uhmPwUv-z5Lddn0B6spCfeFVmh25VXCvmXmqMDz3"
 qiniu_secret_key = "0H5WGOO_wP-R7kup11If3hFq-1vYNUPFXeohFmzN"
