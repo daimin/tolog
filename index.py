@@ -22,6 +22,9 @@ import util
 
 #from bae.api import logging
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8') #设置系统编码，解决BAE上面的中文编码问题
 
 #import log
 
